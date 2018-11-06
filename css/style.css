@@ -113,6 +113,9 @@
   .fadeIn-bottom{
     top: 80%;
   }
+  .fadeIn-top{
+    top: 20%;
+  }
   
   /*Begin section: Judges*/
   /* #judges .row .col-md-3 .container {
