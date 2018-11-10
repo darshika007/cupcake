@@ -1,3 +1,31 @@
+<?php
+include("include.php");
+?>
+<?php
+// only admin can login the page
+if(isset($_POST['email']))
+ $email=$_POST['email'];
+ if(isset($_POST['pwd']))
+ $pwd=$_POST['pwd'];
+ if(isset($_POST['login'])){
+    $email=$_POST['email'];
+    $pwd=$_POST['pwd'];
+$query=mysqli_query($con,"SELECT * FROM regis WHERE email='$email' and pwd='$pwd'");
+    if(mysqli_num_rows($query)>0){
+        //url is not working
+        session_start();
+        $_SESSION['logged in'] = 'true';
+    $_SESSION['email'] = $email;
+    //end url is not working
+header("Location:userprof.php?emailid=$email");
+    }
+    // end to terive the name and password
+else{
+   header("location:index.php");
+ }
+}
+ 
+?>
 <!DOCTYPE html>
 <html>
 
@@ -82,7 +110,7 @@
 
 
 
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.php">
                     <img alt="Brand" src="images/LogoMakr_5es2Bi.png" height="50px;" width="50px;" style="margin-top: -30%;">
                 </a>
 
@@ -95,33 +123,32 @@
 
                 <ul class="nav navbar-nav navbar-right " style="margin-top: 10px;">
                     <li>
-                        <a href="index.html#home">Home</a>
+                        <a href="index.php">Home</a>
                     </li>
                     <li>
-                        <a href="index.html#about">About Us</a>
+                        <a href="index.php#about">About Us</a>
                     </li>
                     <li>
-                        <a href="index.html#gallery">Gallery</a>
+                        <a href="index.php#gallery">Gallery</a>
                     </li>
                     <li>
-                        <a href="schedule.html">Schedule</a>
+                        <a href="schedule.php">Schedule</a>
                     </li>
                     <li>
-                        <a href="topcont.html">Top Contestants</a>
+                        <a href="topcont.php">Top Contestants</a>
                     </li>
                     <li>
-                        <a href="cont.html">Contestants</a>
+                        <a href="cont.php">Contestants</a>
                     </li>
                     <li>
-                        <a href="index.html#judges">Judges</a>
+                        <a href="index.php#judges">Judges</a>
                     </li>
                     <li>
-                        <a href="index.html#sponsors">Sponsors</a>
+                        <a href="index.php#sponsors">Sponsors</a>
                     </li>
                     <li>
-                        <a href="index.html#contact">Contact Us</a>
+                        <a href="index.php#contact">Contact Us</a>
                     </li>
-
                     <li>
                         <button type="Login" class="btn btn-primary" style="color: #fff; margin-top: 10px;" data-toggle="modal" data-target="#loginModal">Login</button>
                            
@@ -145,17 +172,6 @@
         <div id="canvas" class="gradient"></div>
 
     </section>
-    <!-- <section id="home" style="top: -10%; height: 100vh;">
-          
-                    <div id="canvas" class="gradient" style="position: absolute;  text-align: center; position: absolute;   color: white;"> 
-                            <h1  style="font-family: 'Aref Ruqaa', serif; margin-top: 50%;">Face Of Bengaluru-2018</h1>
-                    </div>
-                    <div class="canvas-content">
-                           
-                    </div>
-                </div>
-            
-    </section> -->
     <!--End: Home Section-->
 
 
@@ -178,8 +194,8 @@
                         architecto corporis? Eligendi, molestias! Harum sunt obcaecati reiciendis distinctio ratione quisquam
                         vel laborum commodi dolore corrupti.</p>
 
-                    <button type="Login" class="btn" style="color: #fff; margin-top: 10px; float: right; background: #ff3300;">Register Now!
-                        <a href="reg.html"></a>
+                     <a href="instr.php"><button type="Login" class="btn" style="color: #fff; margin-top: 10px; float: right; background: #ff3300;">Register Now!
+                       </a>
                     </button>
                 </div>
 
@@ -204,138 +220,72 @@
                 <div class="col-md-10 col-md-push-2" style="margin-top: 10%;">
                     <h1 style="font-family: 'Germania One', cursive; color: #000; margin-left: 30%; font-size: 50px;margin-bottom: 5%;">Gallery</h1>
                 </div>
+                <?php 
+                   $count=0;
+                   $sql="SELECT * FROM profile ORDER BY id DESC";
+                   $res=mysqli_query($con,$sql);
+                   while($row=mysqli_fetch_assoc($res)){
+                       $count=$count+1;
+                   if($count==7){
+                   break;
+                   }
+                  else{
+                   ?> 
                 <div class="col-md-4 ">
                     <div class="content">
                         <div class="content-overlay"></div>
-                        <img class="content-image" src="images/cupcake.jpg" height="300px;" width="295px;" style="margin-left:20px;">
+                      
+                        <img class="content-image" src="<?php echo '../admin/Pictures/'. $row['file1']; ?>" height="300px;" width="295px;" style="margin-left:20px; margin-top:20px;">
                         <div class="content-details fadeIn-bottom">
-                            <h3 class="content-title">College #1</h3>
+                          <?php echo '<h3 class="content-title">'.$row['cname'].'</h3>'; ?>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 ">
-                    <div class="content">
-                        <div class="content-overlay"></div>
-                        <img class="content-image" src="images/cupcake.jpg" height="300px;" width="295px;" style="margin-left:20px;">
-                        <div class="content-details fadeIn-bottom">
-                            <h3 class="content-title">College #2</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 ">
-                    <div class="content">
-                        <div class="content-overlay"></div>
-                        <img class="content-image" src="images/cupcake.jpg" height="300px;" width="295px;" style="margin-left:20px;">
-                        <div class="content-details fadeIn-bottom">
-                            <h3 class="content-title">College #3</h3>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="row" style="margin-top: 5%;">
-
-                <div class="col-md-4 ">
-                    <div class="content">
-                        <div class="content-overlay"></div>
-                        <img class="content-image" src="images/cupcake.jpg" height="300px;" width="295px;" style="margin-left:20px;">
-                        <div class="content-details fadeIn-bottom">
-                            <h3 class="content-title">College #4</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 ">
-                    <div class="content">
-                        <div class="content-overlay"></div>
-                        <img class="content-image" src="images/cupcake.jpg" height="300px;" width="295px;" style="margin-left:20px;">
-                        <div class="content-details fadeIn-bottom">
-                            <h3 class="content-title">College #5</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 ">
-                    <div class="content">
-                        <div class="content-overlay"></div>
-                        <img class="content-image" src="images/cupcake.jpg" height="300px;" width="295px;" style="margin-left:20px;">
-                        <div class="content-details fadeIn-bottom">
-                            <h3 class="content-title">College #6</h3>
-                        </div>
-                    </div>
-                    <a href="gallery.html"><button type="Login" class="btn" style="color: #fff; margin-top: 10%; margin-left: 66%; background: #2078aa;">View More
-<<<<<<< HEAD
+                <?php } 
+            }?>
+            <a href="gallery.php" style="color: #fff;"><button type="Login" class="btn" style=" margin-top: 5%; margin-left: 87%; background: #2078aa;">View More
                         </a>
                     </button>
-=======
-                    </button></a>
->>>>>>> 5643bb5548523377b79bcb6b422a87bcf3a543ef
-                </div>
-
-
-
             </div>
-
+            
         </div>
     </section>
     <!--End section: Gallery-->
 
 
-    <!--Begin Section: Judges-->
+    <<!--Begin Section: Judges-->
 
-    <section id="judges" style="margin-top:10%; margin-bottom: 10%;">
-        <div class="row">
-            <div class="container" style="padding-left: 5%;">
-                <div class="col-md-10 col-md-push-2" style="margin-bottom: 5%;">
-                    <h1 style="font-family: 'Germania One', cursive; color: #000; margin-left: 30%; font-size: 50px;">Judges</h1>
-                </div>
-                <div class="col-md-3">
-                    <div class="content" style="padding-left: 7%;">
-                        <div class="content-overlay"></div>
-                        <img class="content-image" src="images/cupcake.jpg" alt="Judge" class="image" height="215px;" width="130px;" >
-                        <div class="content-details fadeIn-top">
-                            <h3 class="content-title">Judge #1</h3>
-                            <p>Designation</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="content" style="padding-left: 7%;">
-                        <div class="content-overlay"></div>
-                        <img class="content-image" src="images/cupcake.jpg" alt="Judge" class="image" height="215px;" width="130px;" >
-                        <div class="content-details fadeIn-top">
-                            <h3 class="content-title">Judge #2</h3>
-                            <p>Designation</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="content" style="padding-left: 7%;">
-                        <div class="content-overlay"></div>
-                        <img class="content-image" src="images/cupcake.jpg" alt="Judge" class="image" height="215px;" width="130px;" >
-                        <div class="content-details fadeIn-top">
-                            <h3 class="content-title">Judge #3</h3>
-                            <p>Designation</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="content" style="padding-left: 7%;">
-                        <div class="content-overlay"></div>
-                        <img class="content-image" src="images/cupcake.jpg" alt="Judge" class="image" height="215px;" width="130px;" >
-                        <div class="content-details fadeIn-top">
-                            <h3 class="content-title">Judge #4</h3>
-                            <p>Designation</p>
-                        </div>
-                    </div>
-                </div>
-
+<section id="judges" style="margin-top:10%; margin-bottom: 10%;">
+    <div class="row">
+        <div class="container" style="padding-left: 5%;">
+            <div class="col-md-10 col-md-push-2" style="margin-bottom: 5%;">
+                <h1 style="font-family: 'Germania One', cursive; color: #000; margin-left: 30%; font-size: 50px;">Judges</h1>
             </div>
+                   <?php 
+                
+                   $sql="SELECT * FROM judge ORDER BY id DESC";
+                   $res=mysqli_query($con,$sql);
+                   while($row=mysqli_fetch_assoc($res)){
+                     ?> 
+            <div class="col-md-3">
+                <div class="content" style="padding-left: 7%;">
+                    <div class="content-overlay"></div> 
+                    <img class="content-image" src="<?php echo '../admin/Pictures/'. $row['file1']; ?>" alt="<?php echo '../admin/Pictures/'. $row['file1']; ?>" class="image" height="215px;" width="130px;" >
+                   
+                    <div class="content-details fadeIn-top">
+                    <?php  echo '<h3 class="content-title">'.$row['name'].'</h3>'; ?>
+                    <?php  echo '<p>'.$row['designation'].'</p>'; ?>
+                    </div>
+                </div>
+            </div>
+            <?php } ?>
         </div>
-    </section>
+    </div>
+</section>
 
 
 
-    <!--End Section: Judges-->
+<!--End Section: Judges-->
 
     <!--Begin Section: Sponsors-->
 
@@ -346,31 +296,15 @@
                             <h1 style="font-family: 'Germania One', cursive; color: #000; margin-left: 30%; font-size: 50px;margin-bottom: 5%;">Sponsors</h1>
                     </div>
                    <div class="col-md-10 col-md-push-2" ></div>
-
                    <marquee behavior="scroll" direction="left"  scrollamount=10>
-                    <img src="images/cupcake.jpg" width="140" height="120" alt="Cupcake Inc." style="padding-right: 20px;"/>
-                    <img src="images/cupcake.jpg" width="140" height="120" alt="Cupcake Inc." style="padding-right: 20px;"/>
-                    <img src="images/cupcake.jpg" width="140" height="120" alt="Cupcake Inc." style="padding-right: 20px;"/>
-                    <img src="images/cupcake.jpg" width="140" height="120" alt="Cupcake Inc." style="padding-right: 20px;"/>
-                    <img src="images/cupcake.jpg" width="140" height="120" alt="Cupcake Inc." style="padding-right: 20px;"/>
+                   <?php 
+                   $sql="SELECT * FROM sponser";
+                   $res=mysqli_query($con,$sql);
+                   while($row=mysqli_fetch_assoc($res)){
+                   ?>  
+                    <img src="<?php echo '../admin/Pictures/'. $row['file1']; ?>" width="140" height="120" alt="<?php echo 'Pictures/'. $row['file1'] ?>" style="padding-right: 20px;"/>
+                   <?php } ?>
                 </marquee>
-                   <!-- <div class="your-class">
-                    <div><img src="images/cupcake.jpg" alt=""></div>
-                    <div><img src="images/cupcake.jpg" alt=""></div>
-                    <div><img src="images/cupcake.jpg" alt=""></div>
-                  </div> -->
-                   <!-- <div class="container">
-                        <section class="customer-logos slider">
-                          <div class="slide"><img src="images/image1.png" height="100px;" width="100px;"></div>
-                          <div class="slide"><img src="images/image2.png"></div>
-                          <div class="slide"><img src="images/image3.png"></div>
-                          <div class="slide"><img src="images/image4.png"></div>
-                          <div class="slide"><img src="images/image5.png"></div>
-                          <div class="slide"><img src="images/image6.png"></div>
-                          <div class="slide"><img src="images/image7.png"></div>
-                          <div class="slide"><img src="images/image8.png"></div>
-                        </section>
-                      </div> -->
             </div>
         </div>
     </section>
@@ -440,8 +374,15 @@
 
     <!--End Section: Contact Us-->
 
+
     <!--Modal-->
     <!--Login Modal-->
+    <?php
+if(isset($_SESSION['logged in'])){
+    header("location:index.php");
+}
+// end login page disabled
+?>
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -450,28 +391,29 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                     <h4 class="modal-title" style="color: #000;">Login</h4>
-                    
+  
                 </div>
                 <div class="modal-body">
-                    <form>
+                <form action="index.php" method="POST">
+       
                         <div class="form-group">
                           <label for="InputEmail">Email address</label>
-                          <input type="email" class="form-control" id="InputEmail" placeholder="Email">
+                          <input type="email" name="email" class="form-control" id="InputEmail" placeholder="Email">
                         </div>
                         <div class="form-group">
                           <label for="InputPassword">Password</label>
-                          <input type="password" class="form-control" id="InputPassword" placeholder="Password">
+                          <input type="password" name="pwd" class="form-control" id="InputPassword" placeholder="Password">
                         </div>
-                        <a href="userprof.html" type="submit" class="btn btn-success">Login</a>
+                        <button type="submit" name="login" class="btn btn-success">Login</button>
                     </form>
                 </div>
                 
             </div>
         </div>
     </div>
+ <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>

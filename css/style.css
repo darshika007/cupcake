@@ -113,6 +113,9 @@
   .fadeIn-bottom{
     top: 80%;
   }
+  .fadeIn-top{
+    top: 20%;
+  }
   
   /*Begin section: Judges*/
   /* #judges .row .col-md-3 .container {
@@ -221,3 +224,34 @@
   background-color: #6195FF;
   color:#FFF;
 }
+
+
+/*Banner*/
+#banner_img img{
+  height:200px;
+  width:250px;   
+  }
+.hero-text h1{
+    top: 30%; 
+    left:20%; 
+    position: absolute;
+    font-family: Germania One;
+    font-size: 60px;
+    letter-spacing: 2px;
+    
+    
+
+  }
+
+  /*Photo grid*/
+  /* .grid { 
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-gap: 25px;
+    align-items: stretch;
+    }
+  .grid img {
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+    max-width: 100%;
+  } */
