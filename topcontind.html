@@ -166,7 +166,9 @@
                     </li>
 
                     <li>
-                        <a href="#">Hi, {name}!</a>
+                        <button type="Login" class="btn btn-primary" style="color: #fff; margin-top: 10px; " data-toggle="modal" data-target="#loginModal">Login
+                            <a href="login.html"></a>
+                        </button>
                     </li>
                 </ul>
             </div>
@@ -186,7 +188,7 @@
         <div class="overlay"></div>
 
         <div class="hero-text">
-            <h1 style="color: #fff; text-align: center; z-index: 1; font-size: 70px; margin-left: -5%;">User Profile</h1>
+            <h1 style="color: #fff; text-align: center; z-index: 1; font-size: 70px; margin-left: -5%;">Top Contestants</h1>
         </div>
     </section>
     <!--End Banner-->
@@ -199,7 +201,7 @@
                               <img src="images/cupcake.jpg" height="170px;" width="140px;" >
                             </div>
                             
-                            <button type="submit" class="btn btn-primary" style="color: #fff; margin-top: 10px; margin-left: 10%;" data-toggle="modal" data-target="#updateModal">Update</button>
+                            <button type="submit" class="btn btn-primary" style="color: #fff; margin-top: 10px; margin-left: 20%;" data-toggle="modal" data-target="#voteModal">Vote</button>
                     </div>
             </div>
 
@@ -353,34 +355,70 @@
     
         <!--Modal-->
 
-        
-        <!--Update Modal-->
-        <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                            <h4 class="modal-title" style="color: #000;">Upload Profile Image</h4>
-                            
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                    <div class="form-group">
-                                            
-                                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                                    </div>
-                               
-                                    <button type="submit" class="btn btn-primary" style="color: #fff; margin-top: 10px;">Update
-                                           
-                                    </button>
-                            </form>
-                        </div>
-                        
-                    </div>
-                </div>
+         <!--Login Modal-->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                <h4 class="modal-title" style="color: #000;">Login</h4>
+                
             </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                      <label for="InputEmail">Email address</label>
+                      <input type="email" class="form-control" id="InputEmail" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                      <label for="InputPassword">Password</label>
+                      <input type="password" class="form-control" id="InputPassword" placeholder="Password">
+                    </div>
+                    <a href="userprof.html" type="submit" class="btn btn-success">Login</a>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+
+         <!--Vote Modal-->
+   <div class="modal fade" id="voteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                    <h4 class="modal-title" style="color: #000;">Vote</h4>
+                    
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                                    <label for="InputName">Name</label>
+                                    <input type="text" class="form-control" id="InputName" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group">
+                          <label for="InputEmail">Email address</label>
+                          <input type="email" class="form-control" id="InputEmail" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                          <label for="InputNumber">Contact Number</label>
+                          <input type="tel" class="form-control" id="InputNumber" placeholder="[+91]">
+                        </div>
+                        <button class="btn-primary">Vote</button>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
 
     
          <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

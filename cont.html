@@ -22,9 +22,11 @@
 
 
     <style>
-        html, body{
+        html,
+        body {
             overflow-x: hidden;
         }
+
         @media(max-width:321px) {
             #bp_banner .hero-text {
                 font-size: 20px;
@@ -83,7 +85,8 @@
                 bottom: 5%;
                 /* padding-top: -30%; */
                 margin-top: -20px;
-                left: 14%;
+                padding-left: -10%;
+                margin-left: -37%;
             }
         }
 
@@ -92,7 +95,7 @@
                 bottom: 5%;
                 /* padding-top: -30%; */
                 margin-top: -20px;
-                left: 19%;
+                left: 15%;
             }
         }
 
@@ -101,7 +104,7 @@
                 bottom: 5%;
                 /* padding-top: -30%; */
                 margin-top: -20px;
-                left: 40%;
+                left: 43%;
             }
         }
     </style>
@@ -188,81 +191,118 @@
         <div class="overlay"></div>
 
         <div class="hero-text">
-            <h1 style="color: #fff; text-align: center; z-index: 1; font-size: 90px;">Gallery</h1>
+            <h1 style="color: #fff; text-align: center; z-index: 1; font-size: 60px; ">Contestants</h1>
         </div>
     </section>
     <!--End Banner-->
 
-    <section id="venue_gallery" style="margin-top: 10%; margin-bottom: 10%;">
+    <div class="row" style="margin-top: 7%; margin-left: 2%;">
         <div class="container">
-            <div class="row">
-               
-                <div class="col-md-4 ">
-                    <div class="content">
-                    <a href="venue_gallery.html"><div class="content-overlay"></div>
-                        <img class="content-image" src="images/cupcake.jpg" height="300px;" width="295px;" style="margin-left:20px;">
-                        <div class="content-details fadeIn-bottom">
-                            <h3 class="content-title">College #1</h3>
-                        </div></a>
-                    </div>
-                </div>
-                <div class="col-md-4 ">
-                    <div class="content">
-                    <a href="#"><div class="content-overlay"></div>
-                        <img class="content-image" src="images/cupcake.jpg" height="300px;" width="295px;" style="margin-left:20px;">
-                        <div class="content-details fadeIn-bottom">
-                            <h3 class="content-title">College #2</h3>
-                        </div></a>
-                    </div>
-                </div>
-                <div class="col-md-4 ">
-                    <div class="content">
-                            <a href="#">    <div class="content-overlay"></div>
-                        <img class="content-image" src="images/cupcake.jpg" height="300px;" width="295px;" style="margin-left:20px;">
-                        <div class="content-details fadeIn-bottom">
-                            <h3 class="content-title">College #3</h3>
-                        </div></a>
-                    </div>
-                </div>
+            <div class="col-md-4">
+               <div class="panel panel-default" style="margin-top: 5%; margin-left: 8%; height: 270px; width: 235px;">
+                    <a href="contind.html">  <div class="panel-body">
+                        <img src="images/cupcake.jpg" height="235px;" width="200px;">
+                    </div></a>
 
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h5><b>Matt Bomer</b>,
+                                <br>Christ University</h5>
+                           
+                        </div>
+                        <div class="col-md-8" style="margin-top: 5%; left: 25%;">
+                            <div class="btn-group btn-group-sm" role="group" aria-label="...">
+                                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#voteModal">Vote</button>
+                                <button type="button" class="btn btn-default btn-sm">72</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
 
-            <div class="row" style="margin-top: 5%;">
-
-                <div class="col-md-4 ">
-                    <div class="content">
-                            <a href="#">   <div class="content-overlay"></div>
-                        <img class="content-image" src="images/cupcake.jpg" height="300px;" width="295px;" style="margin-left:20px;">
-                        <div class="content-details fadeIn-bottom">
-                            <h3 class="content-title">College #4</h3>
-                        </div></a>
+            <div class="col-md-4">
+                    <div class="panel panel-default" style="margin-top: 5%; margin-left: 8%; height: 270px; width: 235px;">
+                        <div class="panel-body">
+                            <img src="images/cupcake.jpg" height="235px;" width="200px;">
+                        </div>
+    
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h5><b>Matt Bomer</b>,
+                                    <br>Christ University</h5>
+                               
+                            </div>
+                            <div class="col-md-8" style="margin-top: 5%; left: 25%;">
+                                <div class="btn-group btn-group-sm" role="group" aria-label="...">
+                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#voteModal">Vote</button>
+                                    <button type="button" class="btn btn-default btn-sm">72</button>
+                                </div>
+                            </div>
+                        </div>
+    
                     </div>
                 </div>
-                <div class="col-md-4 ">
-                    <div class="content">
-                            <a href="#">    <div class="content-overlay"></div>
-                        <img class="content-image" src="images/cupcake.jpg" height="300px;" width="295px;" style="margin-left:20px;">
-                        <div class="content-details fadeIn-bottom">
-                            <h3 class="content-title">College #5</h3>
-                        </div></a>
+
+                <div class="col-md-4">
+                        <div class="panel panel-default" style="margin-top: 5%; margin-left: 8%; height: 270px; width: 235px;">
+                            <div class="panel-body">
+                                <img src="images/cupcake.jpg" height="235px;" width="200px;">
+                            </div>
+        
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h5><b>Matt Bomer</b>,
+                                        <br>Christ University</h5>
+                                   
+                                </div>
+                                <div class="col-md-8" style="margin-top: 5%; left: 25%;">
+                                    <div class="btn-group btn-group-sm" role="group" aria-label="...">
+                                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#voteModal">Vote</button>
+                                        <button type="button" class="btn btn-default btn-sm">72</button>
+                                    </div>
+                                </div>
+                            </div>
+        
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-4 ">
-                    <div class="content">
-                            <a href="#">    <div class="content-overlay"></div>
-                        <img class="content-image" src="images/cupcake.jpg" height="300px;" width="295px;" style="margin-left:20px;">
-                        <div class="content-details fadeIn-bottom">
-                            <h3 class="content-title">College #6</h3>
-                        </div></a>
-                    </div>
-
-                </div>
 
 
+        </div>
+    </div>
 
+    <div class="row" style="margin-top: 5%; margin-bottom: 10%;">
+        <div class="container">
+            <div class="col-md-4  col-md-push-4">
+                <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                          <li>
+                            <a href="#" aria-label="Previous">
+                              <span aria-hidden="true">&laquo;</span>
+                            </a>
+                          </li>
+                          <li><a href="#">1</a></li>
+                          <li><a href="#">2</a></li>
+                          <li><a href="#">3</a></li>
+                          <li><a href="#">4</a></li>
+                          <li><a href="#">5</a></li>
+                          <li>
+                            <a href="#" aria-label="Next">
+                              <span aria-hidden="true">&raquo;</span>
+                            </a>
+                          </li>
+                        </ul>
+                </nav>
             </div>
+        </div>
+    </div>
 
-    </section>
+
+
+
+
+
+
 
 
     <!--End Section: Main Content-->
@@ -372,36 +412,71 @@
     <!--End Section: Contact Us-->
 
     <!--Modal-->
-            <!--Login Modal-->
-            <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                <h4 class="modal-title" style="color: #000;">Login</h4>
-                                
-                            </div>
-                            <div class="modal-body">
-                                <form>
-                                    <div class="form-group">
-                                      <label for="InputEmail">Email address</label>
-                                      <input type="email" class="form-control" id="InputEmail" placeholder="Email">
-                                    </div>
-                                    <div class="form-group">
-                                      <label for="InputPassword">Password</label>
-                                      <input type="password" class="form-control" id="InputPassword" placeholder="Password">
-                                    </div>
-                                    <a href="userprof.html" type="submit" class="btn btn-success">Login</a>
-                                </form>
-                            </div>
-                            
-                        </div>
+    <!--Login Modal-->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                        <h4 class="modal-title" style="color: #000;">Login</h4>
+                        
                     </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                              <label for="InputEmail">Email address</label>
+                              <input type="email" class="form-control" id="InputEmail" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                              <label for="InputPassword">Password</label>
+                              <input type="password" class="form-control" id="InputPassword" placeholder="Password">
+                            </div>
+                            <a href="userprof.html" type="submit" class="btn btn-success">Login</a>
+                        </form>
+                    </div>
+                    
                 </div>
+            </div>
+        </div>
+
+   <!--Vote Modal-->
+   <div class="modal fade" id="voteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                    <h4 class="modal-title" style="color: #000;">Vote</h4>
+                    
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                                    <label for="InputName">Name</label>
+                                    <input type="text" class="form-control" id="InputName" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group">
+                          <label for="InputEmail">Email address</label>
+                          <input type="email" class="form-control" id="InputEmail" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                          <label for="InputNumber">Contact Number</label>
+                          <input type="tel" class="form-control" id="InputNumber" placeholder="[+91]">
+                        </div>
+                        <button class="btn-primary">Vote</button>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </div>
 
 
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
